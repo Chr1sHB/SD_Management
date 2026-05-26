@@ -12,7 +12,7 @@ const DepartmentList = () => {
   const onDepartmentDelete =  () => {
     fetchDepartments()
   }
-
+ 
   const fetchDepartments = async () => {
     setDepLoading(true)
     try {

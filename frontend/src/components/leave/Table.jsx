@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { columns, LeaveButtons } from "../../utils/LeaveHelper";
 import axios from "axios";
-
+ 
 const Table = () => {
   const [leaves, setLeaves] = useState(null);
   const [filteredLeaves, setFilteredLeaves] = useState(null);

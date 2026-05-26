@@ -16,13 +16,13 @@ const Add = () => {
     const {name, value} = e.target
     setLeave((prevState) => ({...prevState, [name] : value}))
   };
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
         const response = await axios.post(
-          `,
+          `/api/leave/add`,leave,
           {
             headers: {
               "Authorization": `Bearer ${localStorage.getItem("token")}`,

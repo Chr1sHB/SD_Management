@@ -27,7 +27,7 @@ const Add = () => {
     const emps = await getEmployees(e.target.value)
     setEmployees(emps)
   }
-
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSalary((prevData) => ({ ...prevData, [name]: value }));
@@ -38,7 +38,7 @@ const Add = () => {
 
     try {
       const response = await axios.post(
-        `
+        `/api/salary/add`,
         salary,
         {
           headers: {

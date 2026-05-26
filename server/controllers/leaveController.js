@@ -5,13 +5,9 @@ const addLeave = async (req, res) => {
     try {
         const {userId, leaveType, startDate, endDate, reason} = req.body
         const employee = await Employee.findOne({userId})
-        console.log(startDate);
-        console.log(endDate); 
+ 
         const newStart = new Date(startDate);
         const newEnd   = new Date(endDate);
-        console.log("News")
-        console.log(newStart);
-        console.log(newEnd);
 
         if (newEnd < newStart) {
             return res.status(400).json({ message: 'La fecha de fin debe ser posterior a la de inicio' });
@@ -20,8 +16,8 @@ const addLeave = async (req, res) => {
 
         const overlappingLeave = await Leave.findOne({
             status: { $nin: ['Rejected'] },
-            startDate: { $lte: newEnd },
-            endDate:   { $gte: newStart }
+            startDate: { $lt: newEnd },
+            endDate:   { $gt: newStart }
         });
 
         if (overlappingLeave) {
@@ -34,11 +30,6 @@ const addLeave = async (req, res) => {
         const newLeave = new Leave({
             employeeId: employee._id, leaveType, startDate, endDate, reason
         })
-        console.log("SI");
-        console.log(newStart);
-        console.log(newEnd);
-        console.log(newLeave);
-
 
         await newLeave.save()
 

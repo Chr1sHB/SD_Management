@@ -10,6 +10,8 @@ import leaveRouter from './routes/leave.js'
 import settingRouter from './routes/setting.js'
 import attendanceRouter from './routes/attendance.js'
 import dashboardRouter from './routes/dashboard.js'
+import dns from "node:dns/promises";   
+dns.setServers(["1.1.1.1", "1.0.0.1"]);
 import connectToDatabase from './db/db.js'
 
 
@@ -26,6 +28,7 @@ app.use('/api/leave', leaveRouter)
 app.use('/api/setting', settingRouter)
 app.use('/api/attendance', attendanceRouter)
 app.use('/api/dashboard', dashboardRouter)
+ 
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is Running on port ${process.env.PORT}`)

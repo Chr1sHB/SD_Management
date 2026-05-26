@@ -78,10 +78,10 @@ const List = () => {
               <td className="px-6 py-3">{sno++}</td>
               <td className="px-6 py-3">{leave.leaveType}</td>
               <td className="px-6 py-3">
-                {new Date(leave.startDate).toDateString()}
+                {new Date(leave.startDate).toLocaleDateString('es-MX', { timeZone: 'UTC' })}
               </td>
               <td className="px-6 py-3">
-                {new Date(leave.endDate).toDateString()}
+                {new Date(leave.endDate).toLocaleDateString('es-MX', { timeZone: 'UTC' })}
               </td>
               <td className="px-6 py-3">{leave.reason}</td>
               <td className="px-6 py-3">{leave.status}</td>

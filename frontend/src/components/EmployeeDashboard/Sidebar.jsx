@@ -9,7 +9,7 @@ import {
   FaTachometerAlt,
   FaUsers,
 } from "react-icons/fa";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/authContext";
 
 const Sidebar = () => {
     const {user} = useAuth()

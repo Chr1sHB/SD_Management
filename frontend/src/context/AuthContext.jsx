@@ -3,7 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 const userContext = createContext();
  
-const AuthContext = ({ children }) => {
+const authContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -54,4 +54,4 @@ const AuthContext = ({ children }) => {
 };
 
 export const useAuth = () => useContext(userContext);
-export default AuthContext;
+export default authContext;

@@ -5,9 +5,13 @@ const addLeave = async (req, res) => {
     try {
         const {userId, leaveType, startDate, endDate, reason} = req.body
         const employee = await Employee.findOne({userId})
-
+        console.log(startDate);
+        console.log(endDate); 
         const newStart = new Date(startDate);
         const newEnd   = new Date(endDate);
+        console.log("News")
+        console.log(newStart);
+        console.log(newEnd);
 
         if (newEnd < newStart) {
             return res.status(400).json({ message: 'La fecha de fin debe ser posterior a la de inicio' });

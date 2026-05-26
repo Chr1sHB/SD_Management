@@ -34,6 +34,10 @@ const addLeave = async (req, res) => {
         const newLeave = new Leave({
             employeeId: employee._id, leaveType, startDate, endDate, reason
         })
+        console.log("SI");
+        console.log(newStart);
+        console.log(newEnd);
+        console.log(newLeave);
 
 
         await newLeave.save()

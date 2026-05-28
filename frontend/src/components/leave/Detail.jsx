@@ -11,7 +11,7 @@ const Detail = () => {
     const fetchLeave = async () => {
       try {
         const responnse = await axios.get(
-          `d}`,
+          `/api/leave/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
